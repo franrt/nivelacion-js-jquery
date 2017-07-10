@@ -91,7 +91,6 @@ function renderActivities(activitiesArray) {
 function renderActivity(activity) {
 
     var name = activity.userName.split(/[ ,]+/); //para poder conseguir solo el nombre del usuario.
-    console.log(name);
 
     $(".list-activities").append('<a href="#" class="item-activity">' +
         '<span class="attribution">' +

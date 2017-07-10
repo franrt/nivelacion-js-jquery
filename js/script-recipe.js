@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    //esconder menu
+    console.log("HTML de Recipe listo");
 
 
 
