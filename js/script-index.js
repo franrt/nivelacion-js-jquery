@@ -12,13 +12,15 @@ $(document).ready(function() {
     function printNews() {
         $('<p>NUEVAS RECETAS</p>').appendTo('#news');
     }
-
     printNews();
     // $("p").text("NUEVAS RECETAS"); -> Con jQuery se puede hacer más simple}
 
 
     //La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
     renderHighlightedRecipes(recipesArray);
+
+    renderActivities(activitiesArray);
+    console.log(activitiesArray);
 
 });
 
@@ -38,7 +40,7 @@ function renderHighlightedRecipes(recipesArray) {
 
 }
 
-renderHighlightedRecipes(recipesArray)
+renderHighlightedRecipes(recipesArray);
 console.log('Recipes: ', recipesArray);
 
 
@@ -66,20 +68,25 @@ function renderRecipe(recipe) {
 }
 
 
-/*
-
-
-  <img src="URL DE LA IMAGEN" />
-</a>
-*/
-
-
+//-----------ETAPA 5: 
 /*
  * Función que se encarga de pintar todas las actividades
  */
+
+
 function renderActivities(activitiesArray) {
-    console.log('Activities: ', activitiesArray);
+    activitiesArray.forEach(function(e) {
+        console.log(e);
+    })
+    if (activitiesArray.length > 0) {
+
+
+        $(".wrapper-message").hide();
+
+    }
 }
+
+console.log('Activities: ', activitiesArray);
 
 /*
  * Función que se encarga de pintar una actividad
