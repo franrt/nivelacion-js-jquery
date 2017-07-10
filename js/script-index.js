@@ -18,9 +18,9 @@ $(document).ready(function() {
 
     //La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
     renderHighlightedRecipes(recipesArray);
-
     renderActivities(activitiesArray);
-    console.log(activitiesArray);
+    renderActivity(activitiesArray)
+        //console.log(activitiesArray);
 
 });
 
@@ -39,9 +39,6 @@ function renderHighlightedRecipes(recipesArray) {
     });
 
 }
-
-renderHighlightedRecipes(recipesArray);
-console.log('Recipes: ', recipesArray);
 
 
 //-----------ETAPA 4: 
@@ -77,22 +74,33 @@ function renderRecipe(recipe) {
 function renderActivities(activitiesArray) {
     activitiesArray.forEach(function(e) {
         console.log(e);
+        renderActivity(e);
     })
     if (activitiesArray.length > 0) {
-
-
         $(".wrapper-message").hide();
-
     }
 }
 
-console.log('Activities: ', activitiesArray);
+//console.log('Activities: ', activitiesArray);
 
 /*
  * Función que se encarga de pintar una actividad
  * Aqui se tiene que crear el HTML que esta en el 
  * archivo "templates/templates-activity.html"
  */
-function renderActivity(recipe) {
+function renderActivity(activity) {
 
+    var name = activity.userName.split(/[ ,]+/); //para poder conseguir solo el nombre del usuario.
+    console.log(name);
+
+    $(".list-activities").append('<a href="#" class="item-activity">' +
+        '<span class="attribution">' +
+        '<span class="avatar">' + '<img src=' + activity.userAvatar + 'class="image-avatar">' +
+        '</span>' + '<span class="meta">' +
+        '<span class="author">' + name[0] + '</span>' + " made " +
+        '<span class="recipe">' + activity.recipeName + '</span>' + ': ' + activity.text +
+        '<span class="location"> ' + activity.place + '</span>' + '</span>' +
+        '</span>' +
+        '<div class="bg-image" style="background-image: url(' + activity.image + ');">' + '</div>' +
+        '</a>')
 }
