@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
-    //ETAPA 1: esconder menú y flecha según corresponda
+    //----------ETAPA 1: esconder menú y flecha según corresponda
 
     $(".nav-item").on(function(event) {
         $("#arrow").hide();
         $("#menu").show();
     });
 
-    // ETAPA 2: función printNews 
+    //-----------ETAPA 2: función printNews 
 
     function printNews() {
         $('<p>NUEVAS RECETAS</p>').appendTo('#news');
@@ -32,6 +32,7 @@ function renderHighlightedRecipes(recipesArray) {
     recipesArray.forEach(function(element) {
         if (element.highlighted == true) {
             console.log(element);
+            renderRecipe(element);
         }
     });
 
@@ -41,6 +42,7 @@ renderHighlightedRecipes(recipesArray)
 console.log('Recipes: ', recipesArray);
 
 
+//-----------ETAPA 4: 
 /*
  * Función que se encarga de pintar UNA recetas que tenga 
  * marcado el atributo "highlighted" como TRUE
@@ -48,9 +50,28 @@ console.log('Recipes: ', recipesArray);
  * archivo "templates/templates-recipe.html"
  */
 function renderRecipe(recipe) {
-    console.log('Voy a pintar la receta: ', recipe);
+
+    $(".list-recipes").append('<a class="item-recipe" href="#">' +
+        '<span class="attribution">' +
+        '<span class="title-recipe">' + recipe.title + '</h3></span>' +
+        '<span class="metadata-recipe">' +
+        '<span class="author-recipe">' + recipe.source.name + '</span>' +
+        '<span class="bookmarks-recipe">' +
+        '<span class="icon-bookmark">' + '</span>' +
+        '</span>' +
+        '</span>' +
+        '</span>' +
+        '<img src="img/recipes/320x350/' + recipe.name + '.jpg" alt="image">' +
+        '</a>')
 }
 
+
+/*
+
+
+  <img src="URL DE LA IMAGEN" />
+</a>
+*/
 
 
 /*
