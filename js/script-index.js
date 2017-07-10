@@ -7,6 +7,14 @@ $(document).ready(function() {
         $("#menu").show();
     });
 
+    // función printNews 
+
+    function printNews() {
+        $('<p>NUEVAS RECETAS</p>').appendTo('#news');
+    }
+
+    printNews();
+    // $("p").text("NUEVAS RECETAS"); -> Con jQuery se puede hacer más simple
 
 
 
