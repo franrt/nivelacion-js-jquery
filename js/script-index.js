@@ -1,21 +1,20 @@
 $(document).ready(function() {
 
-    //esconder menú flecha
+    //ETAPA 1: esconder menú y flecha según corresponda
 
     $(".nav-item").on(function(event) {
         $("#arrow").hide();
         $("#menu").show();
     });
 
-    // función printNews 
+    // ETAPA 2: función printNews 
 
     function printNews() {
         $('<p>NUEVAS RECETAS</p>').appendTo('#news');
     }
 
     printNews();
-    // $("p").text("NUEVAS RECETAS"); -> Con jQuery se puede hacer más simple
-
+    // $("p").text("NUEVAS RECETAS"); -> Con jQuery se puede hacer más simple}
 
 
     //La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
@@ -23,14 +22,24 @@ $(document).ready(function() {
 
 });
 
-
+//-----------ETAPA 3: 
 /*
  * Función que se encarga de pintar TODAS las recetas que tengan 
  * marcado el atributo "highlighted" como TRUE
  */
 function renderHighlightedRecipes(recipesArray) {
-    console.log('Recipes: ', recipesArray);
+
+    recipesArray.forEach(function(element) {
+        if (element.highlighted == true) {
+            console.log(element);
+        }
+    });
+
 }
+
+renderHighlightedRecipes(recipesArray)
+console.log('Recipes: ', recipesArray);
+
 
 /*
  * Función que se encarga de pintar UNA recetas que tenga 
